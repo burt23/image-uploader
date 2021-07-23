@@ -19,12 +19,14 @@ function App() {
   };
 
   const handleSearchTerms = (e) => {
+    console.log("setting search tesrm", e);
     const { target: { value } = { target: { value: "" } } } = e;
     if (!value) return null;
     setSearchTerms(value);
   };
 
-  const handleSearchSubmit = (e) => {
+  const handleSearch = (e) => {
+    console.log("in the submit fn", e);
     if (!image) return null;
     // upload image
   };
@@ -41,19 +43,20 @@ function App() {
               value={searchTerms}
               data-testid="searchInput"
               onChange={handleSearchTerms}
-              onSubmit={handleSearchSubmit}
             />
           </div>
           <div className="flexItem">
-            <h2>Upload an image</h2>
+            <h2>Add an image</h2>
             <input
               id="uploadButton"
               data-testid="uploadButton"
-              type="submit"
+              type="file"
               onSubmit={handleUpload}
-              // accept=".png,.jpg,.svg,.webp,.gif"
-              value="upload"
+              accept=".png,.jpg,.svg,.webp,.gif"
+              // value="upload"
             />
+
+            <input type="button" onClick={handleSearch} value="upload" />
           </div>
         </div>
       </header>
