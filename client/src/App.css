@@ -1,7 +1,16 @@
+html {
+  background: #222;
+}
+
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-content: center;
+  /* justify-content: center; */
+  margin: 2.5vh 2.5vw;
+  width: 95vw;
+  height: 95vh;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -10,15 +19,11 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: row;
-  min-height: 38vh;
-  align-items: center;
-  justify-content: space-evenly;
+.header {
+  background-color: #ccc;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #333;
+  padding: 1rem 0 3rem 0;
 }
 
 .App-link {
@@ -32,4 +37,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.flexItem {
+  flex: auto;
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#searchInputBox {
+  min-width: 350px;
+}
+
+.mainContent {
+  background-color: #777;
+  height: 100%;
+  overflow: hidden;
 }

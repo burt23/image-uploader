@@ -8,7 +8,7 @@ const {
 // you may need to run ```createdb graphql``` from the cmd line if don't already have a db named "graphql"
 const DB_NAME = "image-uploader";
 const LOCAL_DB = `postgres://localhost:5432/${DB_NAME}`;
-const LOCAL_URL = `http://localhost:${PORT}`;
+const LOCAL_URL = `http://localhost`;
 
 const WANTS_DEV_MODE = DEV_MODE == "false" ? false : true;
 

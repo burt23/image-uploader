@@ -31,22 +31,31 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <input
-          type="input"
-          value={searchTerms}
-          data-testid="searchInput"
-          onChange={handleSearchTerms}
-          onSubmit={handleSearchSubmit}
-        />
-        <input
-          id="uploadButton"
-          data-testid="uploadButton"
-          type="submit"
-          onSubmit={handleUpload}
-          // accept=".png,.jpg,.svg,.webp,.gif"
-          value="upload"
-        />
+      <header className="header">
+        <div className="flexRow">
+          <div className="flexItem">
+            <h2>Search</h2>
+            <input
+              type="input"
+              id="searchInputBox"
+              value={searchTerms}
+              data-testid="searchInput"
+              onChange={handleSearchTerms}
+              onSubmit={handleSearchSubmit}
+            />
+          </div>
+          <div className="flexItem">
+            <h2>Upload an image</h2>
+            <input
+              id="uploadButton"
+              data-testid="uploadButton"
+              type="submit"
+              onSubmit={handleUpload}
+              // accept=".png,.jpg,.svg,.webp,.gif"
+              value="upload"
+            />
+          </div>
+        </div>
       </header>
       <div data-testid="mainContent" className="mainContent">
         {images ? (
