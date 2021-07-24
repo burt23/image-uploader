@@ -1,5 +1,5 @@
 const express = require("express");
-// const resolvers = require("./graphql/resolvers");
+const resolvers = require("./graphql/resolvers");
 const { typeDefs } = require("./graphql/typeDefs");
 const { graphqlHTTP } = require("express-graphql");
 const { makeExecutableSchema } = require("graphql-tools");
@@ -9,7 +9,7 @@ const app = express();
 
 const schema = makeExecutableSchema({
   typeDefs,
-  // resolvers,
+  resolvers,
 });
 
 app.get("/", (_, res) => res.redirect("/graphql"));

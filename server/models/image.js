@@ -10,11 +10,6 @@ Image.init(
       type: DataTypes.BLOB,
       allowNull: false,
     },
-    id: {
-      type: DataTypes.UUIDV4,
-      primaryKey: true,
-      autoIncrement: true,
-    },
   },
   {
     sequelize: client,
