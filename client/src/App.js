@@ -1,5 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { GET_IMAGES } from "./graphql/queries";
 
 function App() {
   const [searchTerms, setSearchTerms] = useState();
@@ -12,6 +14,10 @@ function App() {
       setImageCount(images.length);
     }
   }, [images]);
+
+  const { loading, error, data } = useQuery(GET_IMAGES);
+
+  console.log({ loading, error, data });
 
   const handleUpload = (e) => {
     console.log("handling the file upload", e);
@@ -29,6 +35,12 @@ function App() {
     console.log("in the submit fn", e);
     if (!image) return null;
     // upload image
+  };
+
+  const handleFileUpload = (e) => {
+    const { target: { files } = { target: { files: [] } } } = e;
+    const filesToUpload = Array.from(files);
+    console.log("found incoming files???", filesToUpload);
   };
 
   return (
@@ -53,6 +65,7 @@ function App() {
               type="file"
               onSubmit={handleUpload}
               accept=".png,.jpg,.svg,.webp,.gif"
+              onChange={handleFileUpload}
               // value="upload"
             />
 

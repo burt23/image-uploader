@@ -4,15 +4,17 @@ const { typeDefs } = require("./graphql/typeDefs");
 const { graphqlHTTP } = require("express-graphql");
 const { makeExecutableSchema } = require("graphql-tools");
 const { PORT, BASE_URL } = require("./config");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 
 const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
 });
 
-app.get("/", (_, res) => res.redirect("/graphql"));
+app.all("/", (_, res) => res.redirect("/graphql"));
 
 app.use(
   "/graphql",
