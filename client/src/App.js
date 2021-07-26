@@ -17,30 +17,32 @@ function App() {
 
   const { loading, error, data } = useQuery(GET_IMAGES);
 
-  console.log({ loading, error, data });
+  if (loading) return <h1>loading</h1>;
+  if (error) return <h1>well that's embarassing...</h1>;
 
   const handleUpload = (e) => {
-    console.log("handling the file upload", e);
+    // console.log("handling the file upload", e);
     // setImage(e)
   };
 
   const handleSearchTerms = (e) => {
-    console.log("setting search tesrm", e);
+    // console.log("setting search tesrm", e);
     const { target: { value } = { target: { value: "" } } } = e;
     if (!value) return null;
     setSearchTerms(value);
   };
 
   const handleSearch = (e) => {
-    console.log("in the submit fn", e);
+    // console.log("in the submit fn", e);
     if (!image) return null;
     // upload image
   };
 
   const handleFileUpload = (e) => {
-    const { target: { files } = { target: { files: [] } } } = e;
-    const filesToUpload = Array.from(files);
-    console.log("found incoming files???", filesToUpload);
+    // TODO upload ArrayList to server
+    // const { target: { files } = { target: { files: [] } } } = e;
+    // const filesToUpload = Array.from(files);
+    // console.log("found incoming files???", filesToUpload);
   };
 
   return (
@@ -79,6 +81,10 @@ function App() {
         ) : (
           <h3>{`Please search for images`}</h3>
         )}
+        {data &&
+          data.images.map(({ file }, index) => {
+            return <h1 key={file + index}>{file}</h1>;
+          })}
       </div>
     </div>
   );

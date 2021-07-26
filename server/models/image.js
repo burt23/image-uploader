@@ -7,7 +7,7 @@ class Image extends Model {}
 Image.init(
   {
     file: {
-      type: DataTypes.BLOB,
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
   },

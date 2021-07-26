@@ -19,9 +19,9 @@ const resolvers = {
     },
   },
   Mutation: {
-    addImage: async (_, { input }) => {
+    addImage: async (_, file) => {
       try {
-        const image = new Image(input);
+        const image = new Image(file);
         await image.save();
         return image;
       } catch (error) {
