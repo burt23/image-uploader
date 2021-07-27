@@ -1,9 +1,9 @@
 const typeDefs = `
 input ImageInput {
-      file: Float,
+      file: String,
   }
   type Image {
-      file: Float,
+      file: String,
   }
 
   type Query {

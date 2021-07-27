@@ -7,7 +7,10 @@ const { PORT, BASE_URL } = require("./config");
 const cors = require("cors");
 
 const app = express();
+
 app.use(cors());
+
+app.use(express.json({ limit: "50mb" }));
 
 const schema = makeExecutableSchema({
   typeDefs,

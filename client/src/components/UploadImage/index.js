@@ -1,18 +1,23 @@
 import React from "react";
+import { ADD_IMAGE } from "../../graphql/queries";
+import { useMutation } from "@apollo/client";
 
 const UploadImage = () => {
+  const [uploadImage, { loading }] = useMutation(ADD_IMAGE);
+
   const handleUpload = (e) => {
-    // console.log("handling the file upload", e);
-    // setImage(e)
+    const file = document.getElementById("uploadButton").files[0];
+    if (!file) return null;
+    const reader = new FileReader();
+    reader.onloadend = function onLoadCallback() {
+      const { result: base64String } = reader;
+      uploadImage({ variables: { file: base64String } });
+    };
+    reader.readAsDataURL(file);
   };
 
-  const handleFiles = (e) => {
-    // TODO upload ArrayList to server
-    const { target: { files } = { target: { files: [] } } } = e;
-    const filesToUpload = Array.from(files);
-    // useQuery(SAVE_IMAGES(filesToUpload))
-    console.log("found incoming files???", filesToUpload);
-  };
+  if (loading) return <p>Uploading...</p>;
+
   return (
     <div className="flexItem">
       <h2>Add an image</h2>
@@ -21,7 +26,6 @@ const UploadImage = () => {
         data-testid="uploadButton"
         type="file"
         accept=".png,.jpg,.svg,.webp,.gif"
-        onChange={handleFiles} // needed?
       />
 
       <input type="button" onClick={handleUpload} value="upload" />

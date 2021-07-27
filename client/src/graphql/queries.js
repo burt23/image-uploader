@@ -8,9 +8,9 @@ export const GET_IMAGES = gql`
   }
 `;
 
-export const SAVE_IMAGES = gql`
-  query {
-    images {
+export const ADD_IMAGE = gql`
+  mutation AddImage($file: String!) {
+    addImage(file: $file) {
       file
     }
   }

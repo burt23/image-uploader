@@ -1,5 +1,4 @@
-const { Model, DataTypes } = require("sequelize");
-// TODO seed db
+const { Model, Sequelize } = require("sequelize");
 const client = require("../db");
 
 class Image extends Model {}
@@ -7,7 +6,7 @@ class Image extends Model {}
 Image.init(
   {
     file: {
-      type: DataTypes.FLOAT,
+      type: Sequelize.TEXT,
       allowNull: false,
     },
   },
@@ -17,6 +16,7 @@ Image.init(
   }
 );
 
+// TODO seed db
 Image.sync();
 
 module.exports = Image;

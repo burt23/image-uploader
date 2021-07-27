@@ -10,7 +10,7 @@ const resolvers = {
   Query: {
     images: async () => {
       try {
-        const images = Image.findAll();
+        const images = await Image.findAll();
         return images;
       } catch (error) {
         console.error("error getting images", error);
