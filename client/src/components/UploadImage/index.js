@@ -27,7 +27,7 @@ const UploadImage = ({ refetch }) => {
         id="uploadButton"
         data-testid="uploadButton"
         type="file"
-        accept=".png,.jpg,.svg,.webp,.gif"
+        accept=".png,.jpg,.svg,.webp,.gif, .jpeg, .tiff, .gif"
       />
 
       <input type="button" onClick={handleUpload} value="upload" />

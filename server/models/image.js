@@ -1,4 +1,4 @@
-const { Model, Sequelize } = require("sequelize");
+const { Model, Sequelize, DataTypes } = require("sequelize");
 const client = require("../db");
 
 class Image extends Model {}
@@ -8,6 +8,13 @@ Image.init(
     file: {
       type: Sequelize.TEXT,
       allowNull: false,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    type: {
+      type: DataTypes.STRING,
     },
   },
   {

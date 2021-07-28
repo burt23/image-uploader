@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 const SearchInput = () => {
   const [searchTerms, setSearchTerms] = useState();
+
   const handleSearchTerms = (e) => {
     const { target: { value } = { target: { value: "" } } } = e;
-    if (!value) return null;
     setSearchTerms(value);
+  };
+
+  const handleQuery = (e) => {
+    if (e.key === "Enter") {
+      alert("user hit enter", e);
+      // query postgres
+    }
   };
   return (
     <div className="flexItem">
@@ -15,6 +22,7 @@ const SearchInput = () => {
         value={searchTerms}
         data-testid="searchInput"
         onChange={handleSearchTerms}
+        onKeyPress={handleQuery}
       />
     </div>
   );

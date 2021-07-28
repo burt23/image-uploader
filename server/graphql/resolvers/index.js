@@ -17,6 +17,13 @@ const resolvers = {
         throw new Error(error);
       }
     },
+    search: async (_, query) => {
+      try {
+        console.log("inside the search query", query);
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
   },
   Mutation: {
     addImage: async (_, file) => {
