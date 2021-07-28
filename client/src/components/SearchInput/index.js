@@ -2,7 +2,6 @@ import React, { useState } from "react";
 const SearchInput = () => {
   const [searchTerms, setSearchTerms] = useState();
   const handleSearchTerms = (e) => {
-    // console.log("setting search tesrm", e);
     const { target: { value } = { target: { value: "" } } } = e;
     if (!value) return null;
     setSearchTerms(value);

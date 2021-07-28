@@ -1,17 +1,16 @@
 const typeDefs = `
-input ImageInput {
-      file: String,
-  }
   type Image {
-      file: String,
+    file: String!,
+    name: String!,
+    type: String!,
   }
 
   type Query {
-      images: [Image]
+    images: [Image]
   }
 
   type Mutation {
-      addImage(file: String): Image
+    addImage(file: String): Image
   }
 `;
 

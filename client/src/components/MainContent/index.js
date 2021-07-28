@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
-import { GET_IMAGES } from "../../graphql/queries";
 
-const MainContent = () => {
+const MainContent = ({ images = false }) => {
   const [imageCount, setImageCount] = useState();
 
-  const { loading, error, data = false } = useQuery(GET_IMAGES);
-  const { images = false } = data;
   useEffect(() => {
     if (Array.isArray(images)) {
       setImageCount(images.length);
     }
   }, [images]);
-  if (loading) return <h1>loading</h1>;
-  if (error) return <h1>well that's embarassing...</h1>;
 
   return (
     <>
