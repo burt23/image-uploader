@@ -7,36 +7,15 @@ html {
   display: flex;
   flex-direction: column;
   align-content: center;
-  /* justify-content: center; */
   margin: 1vh 0.5vw;
   width: 99vw;
   height: 98vh;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .header {
   background-color: #555b6e;
   font-size: calc(10px + 2vmin);
   color: #faf9f9;
-  padding: 1rem 0 3rem 0;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .flexItem {
@@ -72,6 +51,7 @@ html {
 
 .image {
   max-width: 45vw;
+  height: auto;
   max-height: 100%;
   padding: 1rem;
 }
@@ -84,4 +64,9 @@ html {
 input {
   font-size: 1rem;
   margin: 1rem;
+}
+
+h2 {
+  padding: 0;
+  margin: 0;
 }

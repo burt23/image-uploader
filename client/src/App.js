@@ -18,7 +18,7 @@ function App() {
   }, [fetchedImages]);
 
   if (loading) return <h1>loading</h1>;
-  if (error) return <h1>well that's embarassing...</h1>;
+  if (error) return <h1>well that's embarrassing...</h1>;
 
   return (
     <div className="App">
