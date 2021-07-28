@@ -1,4 +1,5 @@
 const Image = require("../../models/image");
+const { Op } = require("sequelize");
 /**
  Resolvers Map
  Define's the technique for fetching the types defined in the schema. 
@@ -13,13 +14,20 @@ const resolvers = {
         const images = await Image.findAll();
         return images;
       } catch (error) {
-        console.error("error getting images", error);
         throw new Error(error);
       }
     },
     search: async (_, query) => {
       try {
-        console.log("inside the search query", query);
+        const { terms } = query;
+        const images = await Image.findAll({
+          where: {
+            name: {
+              [Op.iLike]: `%${terms}%`,
+            },
+          },
+        });
+        return images;
       } catch (error) {
         throw new Error(error);
       }
@@ -32,7 +40,6 @@ const resolvers = {
         await image.save();
         return image;
       } catch (error) {
-        console.error("Unable to complete addImage Mutation.\n Error:", error);
         throw new Error(error);
       }
     },

@@ -10,6 +10,16 @@ export const GET_IMAGES = gql`
   }
 `;
 
+export const SEARCH = gql`
+  query Search($terms: String!) {
+    search(terms: $terms) {
+      file
+      name
+      type
+    }
+  }
+`;
+
 export const ADD_IMAGE = gql`
   mutation AddImage($file: String!, $name: String!, $type: String) {
     addImage(file: $file, name: $name, type: $type) {

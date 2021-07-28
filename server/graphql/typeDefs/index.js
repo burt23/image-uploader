@@ -7,7 +7,7 @@ const typeDefs = `
 
   type Query {
     images: [Image]
-    search: String!
+    search(terms: String!): [Image]
   }
 
   type Mutation {

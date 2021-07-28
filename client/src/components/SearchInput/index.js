@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { SEARCH } from "../../graphql/queries";
+import { useLazyQuery } from "@apollo/client";
+
 const SearchInput = () => {
   const [searchTerms, setSearchTerms] = useState();
+  const [search, { loading, data = false }] = useLazyQuery(SEARCH);
 
+  useEffect(() => {
+    // if data updates then pass back up the tree
+    console.log("data", data);
+  }, [data]);
   const handleSearchTerms = (e) => {
     const { target: { value } = { target: { value: "" } } } = e;
     setSearchTerms(value);
   };
 
-  const handleQuery = (e) => {
+  const handleQuery = async (e) => {
     if (e.key === "Enter") {
-      alert("user hit enter", e);
-      // query postgres
+      search({ variables: { terms: searchTerms } });
     }
   };
+
+  if (loading) return <p>Searching...</p>;
+
   return (
     <div className="flexItem">
       <h2>Search</h2>
