@@ -2,14 +2,17 @@ import React, { useEffect, useState } from "react";
 import { SEARCH } from "../../graphql/queries";
 import { useLazyQuery } from "@apollo/client";
 
-const SearchInput = () => {
+const SearchInput = ({ setImages }) => {
   const [searchTerms, setSearchTerms] = useState();
   const [search, { loading, data = false }] = useLazyQuery(SEARCH);
 
   useEffect(() => {
-    // if data updates then pass back up the tree
-    console.log("data", data);
+    const { search = false } = data;
+    if (search) {
+      setImages(search);
+    }
   }, [data]);
+
   const handleSearchTerms = (e) => {
     const { target: { value } = { target: { value: "" } } } = e;
     setSearchTerms(value);

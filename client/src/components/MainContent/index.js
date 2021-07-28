@@ -21,11 +21,11 @@ const MainContent = ({ images = false }) => {
       <div data-testid="mainContent" className="mainContent">
         <div className="imageWrapper">
           {images &&
-            images.map(({ file, name }) => {
+            images.map(({ file, name }, index) => {
               return (
                 <img
                   src={file}
-                  key={name}
+                  key={name + index}
                   alt="user uploaded content"
                   className="image"
                 />

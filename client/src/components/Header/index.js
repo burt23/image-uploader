@@ -1,10 +1,10 @@
 import SearchInput from "../SearchInput";
 import UploadImage from "../UploadImage";
 
-const Header = ({ refetch }) => (
+const Header = ({ refetch, setImages }) => (
   <header className="header">
     <div className="flexRow">
-      <SearchInput />
+      <SearchInput setImages={setImages} />
       <UploadImage refetch={refetch} />
     </div>
   </header>
