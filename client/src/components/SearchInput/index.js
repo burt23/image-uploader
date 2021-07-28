@@ -11,7 +11,7 @@ const SearchInput = ({ setImages }) => {
     if (search) {
       setImages(search);
     }
-  }, [data]);
+  }, [data, setImages]);
 
   const handleSearchTerms = (e) => {
     const { target: { value } = { target: { value: "" } } } = e;

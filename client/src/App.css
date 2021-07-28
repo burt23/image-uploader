@@ -59,6 +59,7 @@ html {
 .mainContent {
   background-color: #bee3db59;
   overflow-y: scroll !important;
+  flex: auto;
 }
 
 .imageWrapper {
