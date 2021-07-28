@@ -3,7 +3,7 @@ import { SEARCH } from "../../graphql/queries";
 import { useLazyQuery } from "@apollo/client";
 
 const SearchInput = ({ setImages }) => {
-  const [searchTerms, setSearchTerms] = useState();
+  const [searchTerms, setSearchTerms] = useState("");
   const [search, { loading, data = false }] = useLazyQuery(SEARCH);
 
   useEffect(() => {
