@@ -18,7 +18,7 @@ const SearchInput = ({ setImages }) => {
     setSearchTerms(value);
   };
 
-  const handleQuery = async (e) => {
+  const handleQuery = (e) => {
     if (e.key === "Enter") {
       search({ variables: { terms: searchTerms } });
     }

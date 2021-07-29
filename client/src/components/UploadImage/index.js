@@ -10,9 +10,9 @@ const UploadImage = ({ refetch }) => {
     if (!file) return null;
     const { name, type } = file;
     const reader = new FileReader();
-    reader.onloadend = function onLoadCallback() {
+    reader.onloadend = async function onLoadCallback() {
       const { result: base64String } = reader;
-      uploadImage({ variables: { file: base64String, name, type } });
+      await uploadImage({ variables: { file: base64String, name, type } });
       refetch();
     };
     reader.readAsDataURL(file);

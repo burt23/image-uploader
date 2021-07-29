@@ -18,7 +18,16 @@ function App() {
   }, [fetchedImages]);
 
   if (loading) return <h1>loading</h1>;
-  if (error) return <h1>well that's embarrassing...</h1>;
+  if (error)
+    return (
+      <>
+        <h1>Error fetching images from the backend...</h1>
+        <h3>
+          Please make sure your backend is running and that you've created an
+          'image-uploader' postgres database.
+        </h3>
+      </>
+    );
 
   return (
     <div className="App">
